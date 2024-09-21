@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('dan-meyers-IQVFVH0ajag-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        #chatbox {
+            max-height: 70vh;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(128, 0, 128, 0.5) transparent;
+        }
+        #chatbox::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chatbox::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #chatbox::-webkit-scrollbar-thumb {
+            background-color: rgba(128, 0, 128, 0.5);
+            border-radius: 3px;
+        }
+        .message {
+            background-color: #f0f0f0;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+        .message.bot {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .message.user {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+    <header class="text-center py-6 text-gray-800">
+        <h1 class="text-4xl font-bold">Chatbot</h1>
+        <p class="text-lg">Welcome</p>
+    </header>
+    <main class="bg-white rounded-lg shadow-md p-6 max-w-3xl w-full overflow-hidden">
+        <div id="chatbox" class="flex flex-col items-start overflow-y-auto h-96"></div>
+        <footer class="mt-4 flex items-center">
+            <input id="messageInput" class="flex-grow rounded-full border border-gray-300 p-3 shadow-inner focus:outline-none focus:ring-2 focus:ring-green-500 mr-4" type="text" placeholder="Ask me anything...">
+            <button id="sendButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300">Send</button>
+            <input id="imageUpload" type="file" accept="image/*" class="hidden ml-2" />
+            <button id="uploadButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 ml-2">Upload Image</button>
+            <button id="voiceButton" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 ml-2">🎤</button>
+        </footer>
+    </main>
+</body>
+</html>
